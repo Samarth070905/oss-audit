@@ -1,6 +1,8 @@
 # OSS Audit Toolkit
 
 Author: Samarth
+Registration Number: 24BCE10483
+Chosen Software: Git
 
 ## Project Description
 This project is a collection of Bash scripts designed to audit and analyze a Linux system. It provides information about system configuration, installed software, directories, logic analyzer, and manifesto generation.
