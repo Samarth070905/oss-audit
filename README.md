@@ -9,8 +9,8 @@ This project is a collection of Bash scripts designed to audit and analyze a Lin
 - System information extraction
 - Package verification
 - Directory audit
-- Network status check
-- CPU process monitoring
+- Logic Analyzer
+- Open Source Manifesto 
 
 ## Requirements
 - Linux (Tested on Linux Mint 22)
