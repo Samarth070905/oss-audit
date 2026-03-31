@@ -1,23 +1,21 @@
 #!/bin/bash
-# Script 4: Network Analyzer
+# Script 4: Log Analyzer
 # Author: Samarth
 
-echo "Network Information"
-echo "--------------------"
+LOGFILE=$1
+KEYWORD=${2:-"error"}
+COUNT=0
 
-IP=$(hostname -I | awk '{print $1}')
-HOST=$(hostname)
-
-echo "Hostname: $HOST"
-echo "IP Address: $IP"
-
-echo ""
-
-# Check internet connectivity
-ping -c 1 google.com &> /dev/null
-
-if [ $? -eq 0 ]; then
-    echo "Internet Status: Connected"
-else
-    echo "Internet Status: Not Connected"
+if [ ! -f "$LOGFILE" ]; then
+    echo "File not found"
+    exit 1
 fi
+
+while IFS= read -r line; do
+    if echo "$line" | grep -iq "$KEYWORD"; then
+        COUNT=$((COUNT+1))
+    fi
+done < "$LOGFILE"
+
+echo "Keyword '$KEYWORD' found $COUNT times"
+

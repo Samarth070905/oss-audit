@@ -1,8 +1,17 @@
 #!/bin/bash
-# Script 5: Top CPU Consuming Processes
+# Script 5: Open Source Manifesto Generator
 # Author: Samarth
 
-echo "Top 5 CPU Consuming Processes"
-echo "------------------------------"
+read -p "Your favorite Git command: " TOOL
+read -p "Meaning of freedom: " FREEDOM
+read -p "What project will you share on GitHub: " BUILD
 
-ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6
+DATE=$(date)
+FILE="manifesto_git.txt"
+
+echo "On $DATE, I believe open source means $FREEDOM." > $FILE
+echo "I use Git command '$TOOL' daily to manage code." >> $FILE
+echo "I will build and share $BUILD with the world." >> $FILE
+
+echo "Manifesto saved to $FILE"
+cat $FILE
